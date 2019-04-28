@@ -1,0 +1,63 @@
+import React from 'react';
+import styled from 'styled-components';
+import { styles } from '../../utils';
+import hero from '../../images/hero.svg';
+
+const WorksWrapper = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	width: 100%;
+	padding: 2rem;
+`;
+
+const Right = styled.div`
+	width: 90%;
+
+img{
+	width: 80%;
+}
+`;
+
+const Left = styled.div`
+width: 80%;
+
+	h2{
+		font-size: 4rem;
+		margin-bottom: 2rem;
+		color: #FF6584;
+	}
+
+	p{
+		font-size: 2rem;
+		span{
+			color: #FF6584;
+		}
+	}
+
+
+`;
+
+const Works = () => {
+	return (
+		<WorksWrapper>
+			<Right>
+				<img src={hero} alt="works" />
+			</Right>
+			<Left>
+				<h2>
+					Выполняемые работы
+				</h2>
+				<p>
+					Изделия выполняются в кратчайшие сроки, имеют высокое качество и низкие цены.
+				</p>
+				<p>
+					Процесс обработки деталей включает следующие виды работ: токарные, сверление, фрезеровка, нарезка резьбы.
+				</p>
+
+			</Left>
+		</WorksWrapper>
+	);
+};
+
+export default Works;
