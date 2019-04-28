@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { styles, Title } from '../../utils'
 import Works from './Works';
+import Materials from './Materials';
 
 
 const AboutWrapper = styled.div`
@@ -17,6 +18,7 @@ const index = () => {
 		<AboutWrapper>
 			<Title title="Немного о нас" message="Наша компания предлагает комплекс работ по токарной обработке металлических деталей."/>
 			<Works />
+			<Materials/>
 		</AboutWrapper>
 	);
 };

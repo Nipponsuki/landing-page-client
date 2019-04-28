@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Токарная обработка металлических деталей`,
     description: `Наша компания предлагает комплекс работ по токарной обработке металлических деталей.`,
-    author: `alex`,
+    author: `Alex`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,

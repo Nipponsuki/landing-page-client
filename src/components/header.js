@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import Navbar from './Navbar'
 import Hero from './Hero'
-import hero from '../images/hero.svg'
+import heroImage from '../images/hero.svg'
 
 
 const StyledHeader = styled.header`
 	height: 100vh;
 	width: 100%;
-	background: url(${hero});
+	background: url(${heroImage});
 	background-size:  60%;
 	background-repeat: no-repeat;
 	background-position:  right;
