@@ -5,6 +5,7 @@ import { styles } from '../utils';
 const TitleWrapper = styled.div`
 	text-align: center;
 	margin-bottom: 5rem;
+	margin-top: 5rem;
 
 	h2{
 		${styles.letterSpacing({ spacing: '0.1rem' })};

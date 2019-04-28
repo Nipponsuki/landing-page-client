@@ -15,6 +15,14 @@ const MatWrapper = styled.div`
 const Right = styled.div`
 	width: 80%;
 	padding: 2rem;
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.20);
+	border-radius: 3px;
+	background: ${styles.colors.darkAccent};
+
+	@media(max-width: 900px){
+		padding: none;
+
+	}
 
 	h2{
 		font-size: 4rem;
@@ -24,6 +32,7 @@ const Right = styled.div`
 
 	p{
 		font-size: 2rem;
+		text-align: justify;
 		span{
 			color: #FF6584;
 			text-shadow: 0 1px 1px rgba(0,0,0, .5);
@@ -36,6 +45,10 @@ const Left = styled.div`
 
 	img{
 		width: 80%;
+	}
+
+	@media(max-width: 900px){
+		display: none;
 	}
 
 `;

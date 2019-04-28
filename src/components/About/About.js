@@ -7,18 +7,19 @@ import Materials from './Materials';
 
 const AboutWrapper = styled.div`
 	width: 100%;
-	border: 2px solid red;
 	background: ${styles.colors.mainBackground};
+	padding-top: 2rem;
 
+	
 
 `;
 
 const About = () => {
 	return (
 		<AboutWrapper>
-			<Title title="Немного о нас" message="Наша компания предлагает комплекс работ по токарной обработке металлических деталей."/>
+			<Title title="Немного о нас" message="Наша компания предлагает комплекс работ по токарной обработке металлических деталей." />
 			<Works />
-			<Materials/>
+			<Materials />
 		</AboutWrapper>
 	);
 };

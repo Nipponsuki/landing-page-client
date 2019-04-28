@@ -14,11 +14,13 @@ const StyledHeader = styled.header`
 	background-position:  right;
 	padding: 2rem;
 
-/* display: flex;
-align-items: start;
-justify-content: space-between;
-flex-direction: column; */
-
+	@media(max-width: 800px){
+		/* display: flex;
+		align-items: start;
+		justify-content: space-between;
+		flex-direction: column; */
+		height: auto;
+	}
 `;
 
 const Header = () => {
