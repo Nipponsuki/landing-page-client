@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navbar from './Navbar'
-import Hero from './Hero'
+import Navbar from './Navbar';
+import Hero from './Hero';
 import heroImage from '../images/hero.svg'
 
 
