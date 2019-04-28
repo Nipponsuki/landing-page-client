@@ -13,7 +13,7 @@ const AboutWrapper = styled.div`
 
 `;
 
-const index = () => {
+const About = () => {
 	return (
 		<AboutWrapper>
 			<Title title="Немного о нас" message="Наша компания предлагает комплекс работ по токарной обработке металлических деталей."/>
@@ -23,4 +23,4 @@ const index = () => {
 	);
 };
 
-export default index;
+export default About;
