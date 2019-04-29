@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import { styles, Title } from "../utils"
-import map from "../images/map-1.svg"
 import {
   FaEnvelopeOpenText,
   FaMapMarkerAlt,
