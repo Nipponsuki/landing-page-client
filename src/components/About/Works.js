@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { styles } from '../../utils';
-import hero from '../../images/hero.svg';
+import hero from '../../images/what.svg';
 
 const WorksWrapper = styled.div`
 	display: flex;
@@ -47,7 +47,7 @@ const Left = styled.div`
 		text-align: justify;
 		span{
 			color: #FF6584;
-			text-shadow: 0 1px 1px rgba(0,0,0, .5);
+			text-shadow: 1px 1px 1px rgba(0,0,0, .5);
 		}
 	}
 
