@@ -11,6 +11,9 @@ import {
   FaOdnoklassnikiSquare,
 } from "react-icons/fa"
 
+import Flip from "react-reveal/Flip"
+import Mailto from "./Mailto"
+
 const StyledContact = styled.div`
   width: 100%;
   color: ${styles.colors.darkAccent};
@@ -191,43 +194,47 @@ const Contact = () => {
   return (
     <StyledContact>
       <Title title="Как с нами связаться" />
-      <ContactForm>
-        <MessageUs>
-          <h4>Отправить нам сообщение</h4>
-          <form action="">
-            <input type="email" placeholder="Email Address" />
-            <textarea />
-            <button className="form-btn">
-              Отправить
-              <FaEnvelopeOpenText className="icon" />
-            </button>
-          </form>
-        </MessageUs>
-        <Info>
-          <h4>Контактная информация</h4>
-          <InfoWrapper>
-            <FaMapMarkerAlt className="icon" />
-            <p>
-              {" "}
-              Чувашская Республика, г.Чебоксары, <br />
-              ул. Ильбекова, 8 корп. 1{" "}
-            </p>
-          </InfoWrapper>
-          <InfoWrapper>
-            <FaMobileAlt className="icon" />
-            <p>+ 7 981 991 99 99 </p>
-          </InfoWrapper>
-          <InfoWrapper>
-            <FaMailBulk className="icon" />
-            <p> inseryourmail@gmail.com</p>
-          </InfoWrapper>
-          <SnsIcons>
-            <FaViber className="sns-icon" />
-            <FaOdnoklassnikiSquare className="sns-icon" />
-            <FaVk className="sns-icon" />
-          </SnsIcons>
-        </Info>
-      </ContactForm>
+      <Flip left>
+        <ContactForm>
+          <MessageUs>
+            <h4 id="contacts">Отправить нам сообщение</h4>
+            <form action="">
+              <input type="email" placeholder="Email Address" />
+              <textarea />
+              <button className="form-btn">
+                <Mailto email="foo@bar.baz" subject="Hello" body="Hello world!">
+                  Отправить
+                </Mailto>
+                <FaEnvelopeOpenText className="icon" />
+              </button>
+            </form>
+          </MessageUs>
+          <Info>
+            <h4>Контактная информация</h4>
+            <InfoWrapper>
+              <FaMapMarkerAlt className="icon" />
+              <p>
+                {" "}
+                Чувашская Республика, г.Чебоксары, <br />
+                ул. Ильбекова, 8 корп. 1{" "}
+              </p>
+            </InfoWrapper>
+            <InfoWrapper>
+              <FaMobileAlt className="icon" />
+              <p>+ 7 981 991 99 99 </p>
+            </InfoWrapper>
+            <InfoWrapper>
+              <FaMailBulk className="icon" />
+              <p> inseryourmail@gmail.com</p>
+            </InfoWrapper>
+            <SnsIcons>
+              <FaViber className="sns-icon" />
+              <FaOdnoklassnikiSquare className="sns-icon" />
+              <FaVk className="sns-icon" />
+            </SnsIcons>
+          </Info>
+        </ContactForm>
+      </Flip>
     </StyledContact>
   )
 }

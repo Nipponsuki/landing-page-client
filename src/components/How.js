@@ -7,6 +7,8 @@ import {
   FaRegArrowAltCircleRight,
 } from "react-icons/fa"
 
+import { Link } from "gatsby"
+
 const StyledHow = styled.div`
   color: ${styles.colors.darkAccent};
   background: ${styles.colors.headerBackground};
@@ -58,11 +60,21 @@ const How = () => {
       <Title title="У нас всё просто" />
       <StyledList>
         <Item>
-          <h4>1. Ознакамливаетесь с нашей продукцией.</h4>
+          <h4>
+            1. Ознакамливаетесь с нашей{" "}
+            <Link to="/#products" style={{ color: "#ff6584" }}>
+              продукцией.
+            </Link>
+          </h4>
           <FaWarehouse className="icon" />
         </Item>
         <Item>
-          <h4>2. Проходите на страницу с нашими контактами.</h4>
+          <h4>
+            2. Проходите на страницу с нашими{" "}
+            <Link to="/#contacts" style={{ color: "#ff6584" }}>
+              контактами.
+            </Link>
+          </h4>
           <FaRegArrowAltCircleRight className="icon" />
         </Item>
         <Item>

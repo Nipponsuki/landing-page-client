@@ -20,6 +20,10 @@ const Right = styled.div`
   border-radius: 3px;
   background: ${styles.colors.darkAccent};
 
+  @media (max-width: 500px) {
+    width: 90%;
+  }
+
   @media (max-width: 900px) {
     padding: none;
   }

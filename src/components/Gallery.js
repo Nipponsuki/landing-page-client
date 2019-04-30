@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { FaPencilRuler } from "react-icons/fa"
 import hero from "../images/hero.svg"
+import Slide from "react-reveal/Slide"
 
 const data = [
   {
@@ -133,30 +134,32 @@ const Gallery = () => {
   return (
     <StyledGallery>
       <Title title="Производимые изделия" />
-      <GalleryWrapper>
-        {data.map(item => (
-          <Item>
-            <ItemImg>
-              <img src={hero} alt="product-image" />
-            </ItemImg>
-            <ItemTitle>{item.title}</ItemTitle>
-            <Icon>
-              <FaPencilRuler />
-            </Icon>
-            <ItemInfo>
-              <InfoWrapper>
-                <h5>Ширина:</h5> <span>{item.width}</span>
-              </InfoWrapper>
-              <InfoWrapper>
-                <h5>Высота:</h5> <span>{item.height}</span>
-              </InfoWrapper>
-              <InfoWrapper>
-                <h5>Длина:</h5> <span>{item.length}</span>
-              </InfoWrapper>
-            </ItemInfo>
-          </Item>
-        ))}
-      </GalleryWrapper>
+      <Slide bottom>
+        <GalleryWrapper>
+          {data.map(item => (
+            <Item>
+              <ItemImg>
+                <img src={hero} alt="product-image" id="products" />
+              </ItemImg>
+              <ItemTitle>{item.title}</ItemTitle>
+              <Icon>
+                <FaPencilRuler />
+              </Icon>
+              <ItemInfo>
+                <InfoWrapper>
+                  <h5>Ширина:</h5> <span>{item.width}</span>
+                </InfoWrapper>
+                <InfoWrapper>
+                  <h5>Высота:</h5> <span>{item.height}</span>
+                </InfoWrapper>
+                <InfoWrapper>
+                  <h5>Длина:</h5> <span>{item.length}</span>
+                </InfoWrapper>
+              </ItemInfo>
+            </Item>
+          ))}
+        </GalleryWrapper>
+      </Slide>
     </StyledGallery>
   )
 }

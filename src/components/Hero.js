@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { styles } from "../utils"
+import { Link } from "gatsby"
 
 const StyledHero = styled.div`
   width: 40%;
@@ -68,7 +69,9 @@ const Hero = () => {
       <HeroText>
         Комплекс работ по токарной обработке металлических деталей
       </HeroText>
-      <HeroButton>Изделия</HeroButton>
+      <Link to="/#products">
+        <HeroButton>Изделия</HeroButton>
+      </Link>
     </StyledHero>
   )
 }

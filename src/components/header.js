@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Navbar from "./Navbar"
 import Hero from "./Hero"
 import heroImage from "../images/hero.svg"
+import Slide from "react-reveal/Slide"
 
 const StyledHeader = styled.header`
   height: 100vh;
@@ -34,7 +35,9 @@ const Header = () => {
     <>
       <StyledHeader>
         <Navbar />
-        <Hero />
+        <Slide left>
+          <Hero />
+        </Slide>
       </StyledHeader>
     </>
   )
