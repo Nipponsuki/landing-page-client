@@ -67,11 +67,11 @@ const Navbar = () => {
       <div className="image-container">
         <img src={logo} alt="company-name" />
       </div>
-      <Icons>
+      {/* <Icons>
         <FaViber className="sns-icon" />
         <FaOdnoklassnikiSquare className="sns-icon" />
         <FaVk className="sns-icon" />
-      </Icons>
+      </Icons> */}
     </StyledNavbar>
   )
 }

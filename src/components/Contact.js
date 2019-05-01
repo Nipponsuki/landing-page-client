@@ -39,7 +39,7 @@ const ContactForm = styled.div`
 const MessageUs = styled.div`
   text-align: center;
   width: 100%;
-  padding: 2rem;
+  padding: 2rem 2rem 0 2rem;
   h4 {
     font-size: 3rem;
     margin-top: 1rem;
@@ -137,9 +137,6 @@ const Info = styled.div`
   padding: 2rem;
   background: ${styles.colors.darkAccent};
   width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 
   @media (max-width: 1050px) {
     align-items: center;
@@ -166,6 +163,7 @@ const InfoWrapper = styled.div`
   p {
     font-size: 1.8rem;
     text-align: left;
+    letter-spacing: 0.1rem;
   }
 `
 
@@ -180,12 +178,12 @@ const SnsIcons = styled.div`
   .sns-icon {
     font-size: 3rem;
     cursor: pointer;
-    color: #ff6584;
+    color: ${styles.colors.darkAccent};
     transition: all 0.3s ease;
 
     &:hover {
       transform: scale(1.05);
-      color: ${styles.colors.headerBackground};
+      color: ${styles.colors.darkAccent};
     }
   }
 `
@@ -213,19 +211,15 @@ const Contact = () => {
             <h4>Контактная информация</h4>
             <InfoWrapper>
               <FaMapMarkerAlt className="icon" />
-              <p>
-                {" "}
-                Чувашская Республика, г.Чебоксары, <br />
-                ул. Ильбекова, 8 корп. 1{" "}
-              </p>
+              <p> Чувашская Республика, г.Чебоксары</p>
             </InfoWrapper>
             <InfoWrapper>
               <FaMobileAlt className="icon" />
-              <p>+ 7 981 991 99 99 </p>
+              <p> 8(905)-197-41-18, 8(987)-120-03-53 </p>
             </InfoWrapper>
             <InfoWrapper>
               <FaMailBulk className="icon" />
-              <p> inseryourmail@gmail.com</p>
+              <p>volgabulgar@mail.ru</p>
             </InfoWrapper>
             <SnsIcons>
               <FaViber className="sns-icon" />

@@ -97,7 +97,7 @@ const ItemImg = styled.div`
   }
 `
 const ItemTitle = styled.div`
-  color: #ff6584;
+  color: #ff0000;
   font-size: 3rem;
   text-transform: capitalize;
   font-weight: bold;

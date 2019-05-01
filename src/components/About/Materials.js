@@ -18,7 +18,7 @@ const Right = styled.div`
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
     0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   border-radius: 3px;
-  background: ${styles.colors.darkAccent};
+  background: #fff;
 
   @media (max-width: 500px) {
     width: 90%;
@@ -32,14 +32,19 @@ const Right = styled.div`
     font-size: 4rem;
     margin-bottom: 2rem;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    color: ${styles.colors.darkAccent};
   }
 
   p {
     font-size: 2rem;
-    text-align: justify;
+    text-align: left;
+    font-weight: bold;
+    color: ${styles.colors.mainBackground};
+
     span {
-      color: #ff6584;
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+      color: #ff0000;
+      font-weight: bold;
+      /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); */
     }
   }
 `
