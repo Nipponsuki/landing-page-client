@@ -8,9 +8,9 @@ import hero from "../images/hero.svg"
 import Slide from "react-reveal/Slide"
 import Fade from "react-reveal/Fade"
 import Modal from "./Modal"
-import one from "../images/gallery/1.webp"
-import two from "../images/gallery/2.webp"
-import three from "../images/gallery/3.webp"
+import one from "../images/gallery/1.png"
+import two from "../images/gallery/2.png"
+import three from "../images/gallery/3.png"
 
 const GET_IMAGES = graphql`
   {
