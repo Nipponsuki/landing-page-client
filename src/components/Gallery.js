@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { styles, Title } from "../utils"
 import { StaticQuery, graphql } from "gatsby"
@@ -6,42 +6,47 @@ import Img from "gatsby-image"
 import { FaPencilRuler } from "react-icons/fa"
 import hero from "../images/hero.svg"
 import Slide from "react-reveal/Slide"
+import Fade from "react-reveal/Fade"
+import Modal from "./Modal"
+import one from "../images/gallery/1.webp"
+import two from "../images/gallery/2.webp"
+import three from "../images/gallery/3.webp"
 
-const data = [
+const GET_IMAGES = graphql`
+  {
+    getImages: allFile(filter: { relativeDirectory: { eq: "gallery" } }) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 500) {
+              ...GatsbyImageSharpFluid_tracedSVG
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+const dataItems = [
   {
     id: 1,
-    title: "втулки",
-    width: "20mm",
-    height: "30mm",
-    length: "10mm",
+    title: "бобышка",
+    size: "Размеры по чертежам заказчика",
+    img: one,
   },
   {
     id: 2,
-    title: "бонки",
-    width: "20mm",
-    height: "30mm",
-    length: "10mm",
+    title: "бобышка",
+    size: "Размеры по чертежам заказчика",
+
+    img: two,
   },
   {
     id: 3,
-    title: "бобышки",
-    width: "20mm",
-    height: "30mm",
-    length: "10mm",
-  },
-  {
-    id: 3,
-    title: "стойки резьбовые",
-    width: "20mm",
-    height: "30mm",
-    length: "10mm",
-  },
-  {
-    id: 5,
-    title: "шпильки",
-    width: "20mm",
-    height: "30mm",
-    length: "10mm",
+    title: "втулки",
+    size: "Размеры по чертежам заказчика",
+    img: three,
   },
 ]
 
@@ -87,6 +92,9 @@ const ItemImg = styled.div`
   border-radius: 3px;
   transform: translateY(-8rem);
   margin-bottom: 1rem;
+  overflow: hidden;
+
+  cursor: pointer;
 
   @media (max-width: 860px) {
     height: unset;
@@ -94,6 +102,8 @@ const ItemImg = styled.div`
 
   img {
     width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 `
 const ItemTitle = styled.div`
@@ -131,15 +141,28 @@ const Icon = styled.div`
 `
 
 const Gallery = () => {
+  const [modalIsShown, setModalIsShown] = useState(false)
+  const [selectedImage, setSelectedImage] = useState(0)
+
+  const closeModal = () => {
+    setModalIsShown(false)
+  }
+
+  const handleImage = image => {
+    setModalIsShown(true)
+    setSelectedImage(image)
+  }
+
   return (
     <StyledGallery>
-      <Title title="Производимые изделия" />
+      <Title title="Образцы изготовливаемых изделий" />
+      {modalIsShown && <Modal closeModal={closeModal} data={selectedImage} />}
       <Slide bottom>
         <GalleryWrapper>
-          {data.map(item => (
-            <Item>
-              <ItemImg>
-                <img src={hero} alt="product-image" id="products" />
+          {dataItems.map(item => (
+            <Item key={item.id}>
+              <ItemImg onClick={() => handleImage(item.img)}>
+                <img src={item.img} alt="product-image" id="products" />
               </ItemImg>
               <ItemTitle>{item.title}</ItemTitle>
               <Icon>
@@ -147,13 +170,7 @@ const Gallery = () => {
               </Icon>
               <ItemInfo>
                 <InfoWrapper>
-                  <h5>Ширина:</h5> <span>{item.width}</span>
-                </InfoWrapper>
-                <InfoWrapper>
-                  <h5>Высота:</h5> <span>{item.height}</span>
-                </InfoWrapper>
-                <InfoWrapper>
-                  <h5>Длина:</h5> <span>{item.length}</span>
+                  <span>{item.size}</span>
                 </InfoWrapper>
               </ItemInfo>
             </Item>

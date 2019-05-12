@@ -29,3 +29,7 @@ body {
     font-size: 40%;
   }
 }
+
+.showItem {
+  transform: scale(1);
+}
