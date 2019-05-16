@@ -9,8 +9,11 @@ import Slide from "react-reveal/Slide"
 import Fade from "react-reveal/Fade"
 import Modal from "./Modal"
 import one from "../images/gallery/1.png"
-import two from "../images/gallery/2.png"
+import vt1 from "../images/gallery/втулка-1.png"
+import vt2 from "../images/gallery/втулка-2.png"
+import vt3 from "../images/gallery/втулка-3.png"
 import three from "../images/gallery/3.png"
+import Carousel from "../components/Carousel"
 
 const GET_IMAGES = graphql`
   {
@@ -31,22 +34,17 @@ const GET_IMAGES = graphql`
 const dataItems = [
   {
     id: 1,
-    title: "бобышка",
+    title: "бобышки",
     size: "Размеры по чертежам заказчика",
     img: one,
-  },
-  {
-    id: 2,
-    title: "бобышка",
-    size: "Размеры по чертежам заказчика",
-
-    img: two,
+    images: [one, vt1, vt2, vt3],
   },
   {
     id: 3,
     title: "втулки",
     size: "Размеры по чертежам заказчика",
     img: three,
+    images: [],
   },
 ]
 
@@ -142,26 +140,34 @@ const Icon = styled.div`
 
 const Gallery = () => {
   const [modalIsShown, setModalIsShown] = useState(false)
-  const [selectedImage, setSelectedImage] = useState(0)
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [selectedImages, setSelectedImages] = useState([])
 
   const closeModal = () => {
     setModalIsShown(false)
   }
 
-  const handleImage = image => {
+  const handleImage = (images, img) => {
     setModalIsShown(true)
-    setSelectedImage(image)
+    setSelectedImages(images)
+    setSelectedImage(img)
   }
 
   return (
     <StyledGallery>
       <Title title="Образцы изготовливаемых изделий" />
-      {modalIsShown && <Modal closeModal={closeModal} data={selectedImage} />}
+      {modalIsShown && (
+        <Modal
+          closeModal={closeModal}
+          data={selectedImages}
+          image={selectedImage}
+        />
+      )}
       <Slide bottom>
         <GalleryWrapper>
           {dataItems.map(item => (
             <Item key={item.id}>
-              <ItemImg onClick={() => handleImage(item.img)}>
+              <ItemImg onClick={() => handleImage(item.images, item.img)}>
                 <img src={item.img} alt="product-image" id="products" />
               </ItemImg>
               <ItemTitle>{item.title}</ItemTitle>

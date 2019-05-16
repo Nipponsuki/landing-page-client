@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import styled, { keyframes } from "styled-components"
 import { FaRegTimesCircle } from "react-icons/fa"
 import { styles } from "../utils"
@@ -7,7 +7,6 @@ const show = keyframes`
 	to {
 		transform: scale(1);
 	}
-
 `
 
 const StyledWrapper = styled.div`
@@ -30,11 +29,15 @@ const StyledWrapper = styled.div`
 
 const StyledModal = styled.div`
   width: 70%;
-  height: 70%;
+  height: 80%;
   border-radius: 5px;
   position: relative;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
 
   @media (max-width: 600px) {
     width: 90%;
@@ -50,23 +53,60 @@ const StyledModal = styled.div`
     color: ${styles.colors.darkAccent};
   }
 
-  img {
+  .main {
     width: 100%;
-    height: 100%;
+    height: 40rem;
     object-fit: contain;
     border-radius: 5px;
+
+    @media (max-width: 1024px) {
+      height: 100%;
+    }
   }
 `
 
-const Modal = ({ closeModal, data }) => {
+const SmallGallery = styled.div`
+  height: 18rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const Item = styled.div`
+  padding: 1rem;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 5px;
+  object-fit: contain;
+
+  img {
+    width: 100%;
+    cursor: pointer;
+  }
+`
+
+const Modal = ({ closeModal, data, image }) => {
+  const [selectedImage, setSelectedImage] = useState(image)
   const ref = useRef()
   useOnClickOutside(ref, () => closeModal())
-  console.log(data)
   return (
     <StyledWrapper>
       <StyledModal ref={ref}>
-        <img src={data ? data : null} alt="product image" />
+        <img src={selectedImage} alt="product image" className="main" />
         <FaRegTimesCircle className="icon" onClick={() => closeModal()} />
+        <SmallGallery>
+          {data.map(item => (
+            <Item>
+              <img
+                src={item}
+                alt=""
+                onClick={() => {
+                  setSelectedImage(item)
+                }}
+              />
+            </Item>
+          ))}
+        </SmallGallery>
       </StyledModal>
     </StyledWrapper>
   )
